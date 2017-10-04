@@ -24,7 +24,7 @@ for line in text:
 	line = line.replace('…', ' …')
 	line = line.replace(':', ' :')
 	line = line.replace(';', ' ;')
-	line = line.replace('(', ' (')
+	line = line.replace('(', '( ')
 	line = line.replace(')', ' )')
 	line = line.replace('"', ' "')
 	line = line.split(' ')
