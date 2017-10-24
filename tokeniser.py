@@ -26,8 +26,8 @@ for line in text:
 	line = line.replace(';', ' ;')
 	line = line.replace('(', '( ')
 	line = line.replace(')', ' )')
-	line = line.replace('"', ' "')
-	line = line.replace("'", " '")
+	line = line.replace('"', ' " ')
+	line = line.replace("'", " ' ")
 	line = line.split(' ')
 	word_counter = 1
 	for i in line:
