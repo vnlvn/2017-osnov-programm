@@ -1,22 +1,46 @@
-frequency = {}
+import sys
+
 
 def import_file(fname):
-	#read line by line and make a frequency dictionary
-	with open('fname') as f:
-	for line in f.readlines():
-		row = line.split(': ')
-		transliteration[row[0]] = row[1].strip()
+	# read line by line and make a frequency dictionary
+	frequency = {}
+	with open(fname) as f:
+		for line in f.readlines():
+			row = line.split(': ')
+			frequency[row[0].strip()] = row[1].strip()
+	return frequency
 
-def add_another_file(fname):
-	#if in dictionary: += frequency
-	#if not in dictionary: add
+def add_another_file(fname, dictionary):
+	# if in dictionary: += frequency
+	# if not in dictionary: add
+	frequency = dictionary
+	with open(fname) as f:
+		for line in f.readlines():
+			line = line.strip()
+			row = line.split(': ')
+			#print(row)
+			if row[0].strip() in frequency:
+				#print(row[0].strip())
+				#print(row[1].strip())
+				frequency[row[0]] += row[1]
 
-def output(fname):
-	#write the dictionary into a file
+			else:
+				frequency[row[0].strip()] = row[1].strip()
+	return frequency
+
+def output(dictionary):
+	# write the dictionary into a file
+	frequency_list = ''
+	for i in dictionary:
+		frequency_list += i
+		frequency_list += '\t'
+		frequency_list += dictionary[i]
+		frequency_list += '\n'
+	return frequency_list
 
 def main():
-	import_file(/home/apertium/2017-osnov-programm/project/wordlist-ivelt.txt)
-	add_another_file(/home/apertium/2017-osnov-programm/project/wordlist-kaveshtiebel.txt)
-	output(???) #
+	sys.stdout.write(output(add_another_file('wordlist-kaveshtiebel.txt',
+	import_file('wordlist-ivelt.txt'))))
+
 
 main()

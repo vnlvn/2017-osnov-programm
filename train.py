@@ -73,4 +73,3 @@ for i in pos_tokens_pairs_freq:
 	output += '\n'
 
 sys.stdout.write(output)
-
