@@ -7,7 +7,7 @@ def import_file(fname):
 	with open(fname) as f:
 		for line in f.readlines():
 			row = line.split(': ')
-			frequency[row[0].strip()] = row[1].strip()
+			frequency[row[0].strip()] = int(row[1].strip())
 	return frequency
 
 def add_another_file(fname, dictionary):
@@ -22,19 +22,18 @@ def add_another_file(fname, dictionary):
 			if row[0].strip() in frequency:
 				#print(row[0].strip())
 				#print(row[1].strip())
-				frequency[row[0]] += row[1]
-
+				frequency[row[0]] += int(row[1])
 			else:
-				frequency[row[0].strip()] = row[1].strip()
+				frequency[row[0].strip()] = int(row[1].strip())
 	return frequency
 
 def output(dictionary):
 	# write the dictionary into a file
 	frequency_list = ''
-	for i in dictionary:
+	for i in sorted(dictionary, key=dictionary.get, reverse=True):
 		frequency_list += i
 		frequency_list += '\t'
-		frequency_list += dictionary[i]
+		frequency_list += str(dictionary[i])
 		frequency_list += '\n'
 	return frequency_list
 
