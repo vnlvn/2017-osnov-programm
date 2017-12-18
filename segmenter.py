@@ -3,11 +3,8 @@ import codecs
 
 
 text =  sys.stdin.read()
-text = text.replace('.', ' .')
-text = text.replace('? ', ' ?')
-text = text.replace('! ', ' !')
-text = text.replace('… ', '… ')
-tetx = tetx.replace(' ', '\n')
+for i in '!.?…':
+	text = text.replace(i + ' ', i + '\n')
 
 
 f = codecs.open('tokenized_corpus.txt', 'w', 'utf-8')
